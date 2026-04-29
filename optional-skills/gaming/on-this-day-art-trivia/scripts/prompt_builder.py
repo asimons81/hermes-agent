@@ -87,7 +87,18 @@ def scrub_spoilers(text: str, event: CandidateEvent) -> str:
     the image model — humans will see only the date and location separately.
     Both the proper nouns and the lowercase content tokens of the canonical
     answer are redacted, so a verb like ``induction`` cannot leak.
+
+    If more than 50% of the remaining content words are redacted, returns an
+    empty string so the caller can drop the atmospheric cue entirely.
     """
+    if not text:
+        return ""
+
+    # Count original content words (excluding stopwords/short).
+    original_words = set(w.lower() for w in re.findall(r"[A-Za-z][A-Za-z\-']+", text)
+                         if len(w) >= 4 and w.lower() not in _REDACTION_STOPWORDS)
+    total = len(original_words)
+
     redacted = text
     spoilers: Iterable[str] = (
         _proper_nouns(event.canonical_answer or "")
@@ -104,7 +115,18 @@ def scrub_spoilers(text: str, event: CandidateEvent) -> str:
     for w in _SENSITIVE_CONTEXT_WORDS:
         redacted = re.sub(rf"\b{re.escape(w)}\b", " ", redacted, flags=re.IGNORECASE)
 
-    return re.sub(r"\s+", " ", redacted).strip(" .,:;-")
+    redacted = re.sub(r"\s+", " ", redacted).strip(" .,:-")
+
+    # Degradation check: if >50% of words became placeholders, the cue is noise.
+    if total > 0:
+        remaining_words = set(w.lower() for w in re.findall(r"[A-Za-z][A-Za-z\-']+", redacted)
+                           if len(w) >= 4 and w.lower() not in _REDACTION_STOPWORDS)
+        # Words still present / total original (ignoring newly inserted 'the figure', 'the moment')
+        original_redacted = remaining_words - {"figure", "moment"}
+        if len(original_redacted) == 0 or (len(original_redacted) / total) < 0.5:
+            return ""
+
+    return redacted
 
 
 def prompt_passes_safety(text: str) -> bool:
@@ -129,6 +151,9 @@ def prompt_passes_safety(text: str) -> bool:
 
 def _date_phrase(event: CandidateEvent, surface_date: Optional[str]) -> str:
     if surface_date and event.year:
+        # surface_date from _surface_date() already includes the year, don't duplicate it.
+        if str(event.year) in surface_date:
+            return surface_date
         return f"{surface_date}, {event.year}"
     if surface_date:
         return surface_date
