@@ -45,6 +45,7 @@ import {
   verifyHermesCli
 } from './backend-probes'
 import { waitForDashboardPortAnnouncement } from './backend-ready'
+import { isExternallyOpenableScheme } from './open-external-schemes'
 import {
   isHostKeyChangedBootFailure,
   isRetryableRemoteBootFailure,
@@ -1540,6 +1541,9 @@ function loadWindowUrl(win, url, label) {
   win.loadURL(url).catch(error => rememberLog(`${label} failed to load: ${describeCrashReason(error)}`))
 }
 
+// Curated custom URL schemes plugins may open through PluginOs.openExternal.
+// hermes:// is deliberately absent (own deep-link router). Pure gate lives in
+// ./open-external-schemes (testable without booting Electron).
 function openExternalUrl(rawUrl) {
   const raw = String(rawUrl || '').trim()
 
@@ -1589,7 +1593,14 @@ function openExternalUrl(rawUrl) {
     return true
   }
 
-  if (!['http:', 'https:', 'mailto:'].includes(parsed.protocol)) {
+  // Custom app schemes (spotify:, zoom:, etc.). PluginOs.openExternal documents
+  // this door for custom schemes, so allowlist a curated set rather than any
+  // scheme (open-ended would let a compromised renderer launch arbitrary
+  // protocol handlers). hermes:// is EXCLUDED: it belongs to our own deep-link
+  // router, not the OS shell.
+  const protocol = parsed.protocol
+
+  if (!isExternallyOpenableScheme(protocol)) {
     return false
   }
 
