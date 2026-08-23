@@ -1175,7 +1175,11 @@ def do_update(name: Optional[str] = None, console: Optional[Console] = None,
 
 def do_audit(name: Optional[str] = None, console: Optional[Console] = None,
              deep: bool = False) -> None:
-    """Re-run security scan on installed hub skills.
+    """Re-run security scans on Hub skills or one explicitly named local skill.
+
+    With no ``name``, audit remains scoped to Hub-managed installs. When a safe
+    explicit name is supplied, an owner-local ``SKILLS_DIR/<name>/SKILL.md`` is
+    also eligible without pretending it is Hub-managed.
 
     When ``deep=True``, also runs an opt-in AST-level diagnostic on Python
     files (review aid only — not a security gate; skills_guard.py verdicts
@@ -1188,7 +1192,7 @@ def do_audit(name: Optional[str] = None, console: Optional[Console] = None,
     lock = HubLockFile()
     installed = lock.list_installed()
 
-    if not installed:
+    if not installed and not name:
         c.print("[dim]No hub-installed skills to audit.[/]\n")
         return
 
@@ -1196,8 +1200,27 @@ def do_audit(name: Optional[str] = None, console: Optional[Console] = None,
     if name:
         targets = [e for e in installed if e["name"] == name]
         if not targets:
-            c.print(f"[bold red]Error:[/] '{name}' is not a hub-installed skill.\n")
-            return
+            # Named owner-local skills should still be auditable. Keep the
+            # no-name form scoped to Hub installs so `hermes skills audit`
+            # does not unexpectedly scan every builtin/local skill, but allow
+            # an explicit safe skill name to resolve directly under SKILLS_DIR.
+            local_path = SKILLS_DIR / name
+            if (
+                _is_valid_installed_skill_name(name)
+                and local_path.is_dir()
+                and (local_path / "SKILL.md").is_file()
+            ):
+                targets = [{
+                    "name": name,
+                    "install_path": name,
+                    "source": "local",
+                    "identifier": f"local:{name}",
+                }]
+            else:
+                c.print(
+                    f"[bold red]Error:[/] '{name}' is neither a hub-installed nor an owner-local skill.\n"
+                )
+                return
 
     c.print(f"\n[bold]Auditing {len(targets)} skill(s)...[/]\n")
 

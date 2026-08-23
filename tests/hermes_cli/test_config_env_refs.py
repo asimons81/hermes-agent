@@ -13,6 +13,33 @@ def _read_config(tmp_path) -> str:
 
 
 
+def test_load_config_resolves_active_profile_dotenv_and_detects_rotation(monkeypatch, tmp_path):
+    """Early config loads must resolve the active profile .env without a global export.
+
+    The config file stays byte-identical while the dotenv value rotates, so this
+    also pins cache invalidation against profile-local env refs.
+    """
+    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.delenv("A2A_PEER_GAMING_4090", raising=False)
+    _write_config(
+        tmp_path,
+        """\
+        a2a_agents:
+          gaming-4090:
+            url: ${env:A2A_PEER_GAMING_4090}
+        """,
+    )
+    env_path = tmp_path / ".env"
+    env_path.write_text("A2A_PEER_GAMING_4090=http://127.0.0.1:9900\n", encoding="utf-8")
+
+    first = load_config()
+    assert first["a2a_agents"]["gaming-4090"]["url"] == "http://127.0.0.1:9900"
+
+    env_path.write_text("A2A_PEER_GAMING_4090=http://127.0.0.1:9901\n", encoding="utf-8")
+    second = load_config()
+    assert second["a2a_agents"]["gaming-4090"]["url"] == "http://127.0.0.1:9901"
+
+
 def test_save_config_preserves_unresolved_env_refs(monkeypatch, tmp_path):
     monkeypatch.setenv("HERMES_HOME", str(tmp_path))
     monkeypatch.delenv("MISSING_SECRET", raising=False)

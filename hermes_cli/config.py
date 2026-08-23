@@ -2628,6 +2628,56 @@ def _strip_dotted_keys(cfg: dict, dotted_keys: set) -> Tuple[dict, set]:
     return cfg, stripped
 
 
+def _config_env_value(name: str) -> Optional[str]:
+    """Resolve a config env reference against the active profile safely.
+
+    ``config.yaml`` can be loaded before ``load_hermes_dotenv()`` has copied the
+    profile's ``.env`` into ``os.environ``.  That is especially common on CLI
+    and operator startup paths, and previously made valid refs such as
+    ``${env:A2A_PEER_GAMING_4090}`` look unset until later in process startup.
+
+    Under multiplexing, never borrow a process-global value from another
+    profile.  An installed secret scope is authoritative; when no scope exists
+    yet, read only the current HERMES_HOME's ``.env``.  Outside multiplexing we
+    preserve normal shell-over-dotenv precedence, then fall back to the active
+    profile file.
+    """
+    if not name:
+        return None
+    try:
+        from agent.secret_scope import (
+            current_secret_scope,
+            is_multiplex_active,
+            load_env_file,
+        )
+
+        multiplex = is_multiplex_active()
+        scope = current_secret_scope()
+        if scope is not None:
+            scoped = scope.get(name)
+            if scoped is not None:
+                return str(scoped)
+            if multiplex:
+                return None
+
+        if not multiplex:
+            process_value = os.environ.get(name)
+            if process_value is not None:
+                return process_value
+
+        profile_values = load_env_file(get_config_path().parent / ".env")
+        if name in profile_values:
+            return profile_values[name]
+        if multiplex:
+            return None
+    except Exception:
+        # Keep config loading resilient during early import / bootstrap.  The
+        # legacy process-env lookup below is still correct for non-multiplexed
+        # callers and leaves unresolved refs verbatim otherwise.
+        pass
+    return os.environ.get(name)
+
+
 def _env_expand_match(m: re.Match) -> str:
     """Expand one ``${...}`` config reference.
 
@@ -2652,7 +2702,7 @@ def _env_expand_match(m: re.Match) -> str:
         name = inner[len("env:"):].strip()
         if not name:
             return raw
-        val = os.environ.get(name)
+        val = _config_env_value(name)
         if val is not None:
             return val
         logger.warning(
@@ -2673,7 +2723,7 @@ def _env_expand_match(m: re.Match) -> str:
         )
         return raw
     # Legacy ``${VAR}`` — bare name.
-    return os.environ.get(inner, raw)
+    return _config_env_value(inner) or raw
 
 
 def _env_ref_var_name(ref: str) -> Optional[str]:
@@ -2726,7 +2776,7 @@ def _env_ref_snapshot(obj, snapshot=None):
         for raw in re.findall(r"\${([^}]+)}", obj):
             name = _env_ref_var_name(raw)
             if name is not None:
-                snapshot[name] = os.environ.get(name)
+                snapshot[name] = _config_env_value(name)
     elif isinstance(obj, dict):
         for value in obj.values():
             _env_ref_snapshot(value, snapshot)
@@ -3658,7 +3708,7 @@ def _load_config_impl(*, want_deepcopy: bool) -> Dict[str, Any]:
             # pins unexpanded literals (e.g. auxiliary.<task>.api_key) for the
             # life of the process (#58514).
             env_snapshot = cached[5] if len(cached) > 5 else {}
-            if all(os.environ.get(k) == v for k, v in env_snapshot.items()):
+            if all(_config_env_value(k) == v for k, v in env_snapshot.items()):
                 return copy.deepcopy(cached[4]) if want_deepcopy else cached[4]
 
         config = copy.deepcopy(DEFAULT_CONFIG)

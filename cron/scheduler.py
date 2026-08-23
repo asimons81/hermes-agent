@@ -7778,6 +7778,29 @@ def tick(
                 try:
                     return ctx.run(_process_job, j)
                 finally:
+                    # Claim-then-die backstop (#86721 follow-up): the execution
+                    # row was created on THIS process (the long-lived gateway),
+                    # so a worker thread that raises — or is abandoned — before
+                    # _run_one_job_body reaches its own terminal write leaves a
+                    # 'claimed'/'running' row whose owner process is still
+                    # alive, which recover_interrupted_executions can never
+                    # reap (it only proves *process* death, and skips rows
+                    # owned by this same process). Close the row here so the
+                    # handoff cannot strand it. finish_execution only
+                    # transitions claimed/running rows, so a legit
+                    # completed/failed result written above is never
+                    # overwritten.
+                    try:
+                        finish_execution(
+                            j["execution_id"],
+                            success=False,
+                            error=(
+                                "Worker exited before a durable terminal state; "
+                                "claim handoff did not complete the execution."
+                            ),
+                        )
+                    except Exception:
+                        pass
                     release_running_job(j["id"])
 
             try:

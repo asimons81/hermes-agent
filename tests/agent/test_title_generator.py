@@ -290,6 +290,31 @@ class TestMaybeAutoTitle:
                 runtime_validator=None,
             )
 
+    def test_background_title_inherits_profile_secret_scope(self):
+        """The daemon title worker must keep the multiplexed turn's secret scope."""
+        from agent.secret_scope import current_secret_scope, reset_secret_scope, set_secret_scope
+        import threading
+
+        db = MagicMock()
+        db.get_session_title.return_value = None
+        seen = []
+        called = threading.Event()
+
+        token = set_secret_scope({"NINEROUTER_KEY": "scoped-value"})
+        try:
+            with patch("agent.title_generator.auto_title_session") as mock_auto:
+                def _capture(*args, **kwargs):
+                    seen.append(dict(current_secret_scope() or {}))
+                    called.set()
+
+                mock_auto.side_effect = _capture
+                maybe_auto_title(db, "sess-scope", "fix scoped title generation", [])
+                assert called.wait(timeout=10), "auto-title worker never ran"
+        finally:
+            reset_secret_scope(token)
+
+        assert seen == [{"NINEROUTER_KEY": "scoped-value"}]
+
     def test_writes_instant_title_before_the_model_runs(self, tmp_path):
         """The derived title lands synchronously — no LLM, no waiting."""
         db = SessionDB(tmp_path / "state.db")
