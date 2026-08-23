@@ -1,0 +1,393 @@
+[
+  {
+    "body": {
+      "auth": {
+        "state": "connected"
+      },
+      "capabilities": {
+        "album": true,
+        "artist_albums": false,
+        "devices": true,
+        "library": true,
+        "playback": true,
+        "playlists": true,
+        "preview_url": false,
+        "queue": true,
+        "search": true,
+        "status": true
+      },
+      "ok": true,
+      "plugin": "spotify-desktop"
+    },
+    "request": {
+      "json": {},
+      "method": "GET",
+      "path": "/status"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "devices": [
+        {
+          "can_adjust_volume": true,
+          "can_transfer": true,
+          "id": "1988062662f82c365680af558b93d3c14ce43257",
+          "is_active": false,
+          "is_restricted": false,
+          "name": "archlinux",
+          "type": "Computer",
+          "volume_percent": 100
+        }
+      ],
+      "ok": true
+    },
+    "request": {
+      "json": {},
+      "method": "GET",
+      "path": "/devices"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "device": null,
+      "idle": true,
+      "item": null,
+      "ok": true
+    },
+    "request": {
+      "json": {},
+      "method": "GET",
+      "path": "/playback"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257",
+        "play": false
+      },
+      "method": "POST",
+      "path": "/transfer"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "device": {
+        "can_adjust_volume": true,
+        "can_transfer": true,
+        "id": "1988062662f82c365680af558b93d3c14ce43257",
+        "is_active": true,
+        "is_restricted": false,
+        "name": "archlinux",
+        "type": "Computer",
+        "volume_percent": 100
+      },
+      "idle": false,
+      "is_playing": false,
+      "item": {
+        "album": {
+          "id": "3hWTXO0w02D6YpVRyLRmQz",
+          "images": [
+            {
+              "height": 640,
+              "width": 640
+            },
+            {
+              "height": 300,
+              "width": 300
+            },
+            {
+              "height": 64,
+              "width": 64
+            }
+          ],
+          "name": "The End, So Far"
+        },
+        "artists": [
+          {
+            "id": "05fG473iIaoy82BF1aGhL8",
+            "name": "Slipknot",
+            "uri": "spotify:artist:05fG473iIaoy82BF1aGhL8"
+          }
+        ],
+        "duration_ms": 339840,
+        "explicit": false,
+        "id": "3b3boZLiT0Q5aruT45oITP",
+        "name": "De Sade",
+        "uri": "spotify:track:3b3boZLiT0Q5aruT45oITP"
+      },
+      "ok": true,
+      "progress_ms": 106915,
+      "repeat_state": "off",
+      "shuffle_state": false,
+      "timestamp": 1787431753222
+    },
+    "request": {
+      "json": {},
+      "method": "GET",
+      "path": "/playback"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257"
+      },
+      "method": "POST",
+      "path": "/playback/play"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257"
+      },
+      "method": "POST",
+      "path": "/playback/next"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257"
+      },
+      "method": "POST",
+      "path": "/playback/previous"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "device": {
+        "can_adjust_volume": true,
+        "can_transfer": true,
+        "id": "1988062662f82c365680af558b93d3c14ce43257",
+        "is_active": true,
+        "is_restricted": false,
+        "name": "archlinux",
+        "type": "Computer",
+        "volume_percent": 100
+      },
+      "idle": false,
+      "is_playing": true,
+      "item": {
+        "album": {
+          "id": "3hWTXO0w02D6YpVRyLRmQz",
+          "images": [
+            {
+              "height": 640,
+              "width": 640
+            },
+            {
+              "height": 300,
+              "width": 300
+            },
+            {
+              "height": 64,
+              "width": 64
+            }
+          ],
+          "name": "The End, So Far"
+        },
+        "artists": [
+          {
+            "id": "05fG473iIaoy82BF1aGhL8",
+            "name": "Slipknot",
+            "uri": "spotify:artist:05fG473iIaoy82BF1aGhL8"
+          }
+        ],
+        "duration_ms": 339840,
+        "explicit": false,
+        "id": "3b3boZLiT0Q5aruT45oITP",
+        "name": "De Sade",
+        "uri": "spotify:track:3b3boZLiT0Q5aruT45oITP"
+      },
+      "ok": true,
+      "progress_ms": 154,
+      "repeat_state": "off",
+      "shuffle_state": false,
+      "timestamp": 1787432696094
+    },
+    "request": {
+      "json": {},
+      "method": "GET",
+      "path": "/playback"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257",
+        "position_ms": 154
+      },
+      "method": "POST",
+      "path": "/playback/seek"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257",
+        "volume_percent": 100
+      },
+      "method": "POST",
+      "path": "/playback/volume"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257",
+        "state": true
+      },
+      "method": "POST",
+      "path": "/playback/shuffle"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257",
+        "state": false
+      },
+      "method": "POST",
+      "path": "/playback/shuffle"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257",
+        "state": "context"
+      },
+      "method": "POST",
+      "path": "/playback/repeat"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257",
+        "state": "off"
+      },
+      "method": "POST",
+      "path": "/playback/repeat"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "ok": true
+    },
+    "request": {
+      "json": {
+        "device_id": "1988062662f82c365680af558b93d3c14ce43257"
+      },
+      "method": "POST",
+      "path": "/playback/pause"
+    },
+    "status": 200
+  },
+  {
+    "body": {
+      "device": {
+        "can_adjust_volume": true,
+        "can_transfer": true,
+        "id": "1988062662f82c365680af558b93d3c14ce43257",
+        "is_active": true,
+        "is_restricted": false,
+        "name": "archlinux",
+        "type": "Computer",
+        "volume_percent": 100
+      },
+      "idle": false,
+      "is_playing": false,
+      "item": {
+        "album": {
+          "id": "3hWTXO0w02D6YpVRyLRmQz",
+          "images": [
+            {
+              "height": 640,
+              "width": 640
+            },
+            {
+              "height": 300,
+              "width": 300
+            },
+            {
+              "height": 64,
+              "width": 64
+            }
+          ],
+          "name": "The End, So Far"
+        },
+        "artists": [
+          {
+            "id": "05fG473iIaoy82BF1aGhL8",
+            "name": "Slipknot",
+            "uri": "spotify:artist:05fG473iIaoy82BF1aGhL8"
+          }
+        ],
+        "duration_ms": 339840,
+        "explicit": false,
+        "id": "3b3boZLiT0Q5aruT45oITP",
+        "name": "De Sade",
+        "uri": "spotify:track:3b3boZLiT0Q5aruT45oITP"
+      },
+      "ok": true,
+      "progress_ms": 2543,
+      "repeat_state": "off",
+      "shuffle_state": false,
+      "timestamp": 1787432699091
+    },
+    "request": {
+      "json": {},
+      "method": "GET",
+      "path": "/playback"
+    },
+    "status": 200
+  }
+]

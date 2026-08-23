@@ -1,0 +1,3988 @@
+{
+ "results": {
+  "transfer_activate": true,
+  "play_from_search": true,
+  "pause": true,
+  "resume": true,
+  "next_advances": false,
+  "previous": true,
+  "seek": true,
+  "volume_set": false,
+  "shuffle_on": true,
+  "shuffle_off": true,
+  "queue_add_visible": true,
+  "play_album_context": false,
+  "play_playlist_context": false,
+  "no_device_typed_error": "verified-16:44:404-no_active_device",
+  "final_paused": true
+ },
+ "trace": [
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "",
+   "body": "baseline",
+   "resp": {
+    "ok": true,
+    "idle": true,
+    "item": null,
+    "device": null
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/devices",
+   "status": 200,
+   "note": "",
+   "body": "devices",
+   "resp": {
+    "ok": true,
+    "devices": [
+     {
+      "id": "1988062662f82c365680af558b93d3c14ce43257",
+      "name": "archlinux",
+      "type": "Computer",
+      "is_active": false,
+      "is_restricted": false,
+      "volume_percent": 100,
+      "can_transfer": true,
+      "can_adjust_volume": true
+     }
+    ]
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/transfer",
+   "status": 200,
+   "note": "transfer-activate",
+   "body": {
+    "device_id": "1988062662f82c365680af558b93d3c14ce43257",
+    "play": true
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-active",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 4372,
+    "timestamp": 1787436487186,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3b3boZLiT0Q5aruT45oITP",
+     "uri": "spotify:track:3b3boZLiT0Q5aruT45oITP",
+     "name": "De Sade",
+     "duration_ms": 339840,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "05fG473iIaoy82BF1aGhL8",
+       "name": "Slipknot",
+       "uri": "spotify:artist:05fG473iIaoy82BF1aGhL8"
+      }
+     ],
+     "album": {
+      "id": "3hWTXO0w02D6YpVRyLRmQz",
+      "name": "The End, So Far",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b27392e0ce2dd51b98fee0e4937a",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e0292e0ce2dd51b98fee0e4937a",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000485192e0ce2dd51b98fee0e4937a",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "",
+   "body": "post-transfer",
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 4743,
+    "timestamp": 1787436487186,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3b3boZLiT0Q5aruT45oITP",
+     "uri": "spotify:track:3b3boZLiT0Q5aruT45oITP",
+     "name": "De Sade",
+     "duration_ms": 339840,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "05fG473iIaoy82BF1aGhL8",
+       "name": "Slipknot",
+       "uri": "spotify:artist:05fG473iIaoy82BF1aGhL8"
+      }
+     ],
+     "album": {
+      "id": "3hWTXO0w02D6YpVRyLRmQz",
+      "name": "The End, So Far",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b27392e0ce2dd51b98fee0e4937a",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e0292e0ce2dd51b98fee0e4937a",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000485192e0ce2dd51b98fee0e4937a",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/search?q=haunted%20by%20you&limit=3",
+   "status": 200,
+   "note": "",
+   "body": "find-track",
+   "resp": {
+    "ok": true,
+    "results": {
+     "tracks": {
+      "href": "https://api.spotify.com/v1/search?offset=0&limit=3&query=haunted%20by%20you&type=track",
+      "limit": 3,
+      "next": "https://api.spotify.com/v1/search?offset=3&limit=3&query=haunted%20by%20you&type=track",
+      "offset": 0,
+      "previous": null,
+      "total": 12,
+      "items": [
+       {
+        "album": {
+         "album_type": "single",
+         "artists": [
+          {
+           "external_urls": {
+            "spotify": "https://open.spotify.com/artist/0h4SfXo12YoL7wyPdyQgWz"
+           },
+           "href": "https://api.spotify.com/v1/artists/0h4SfXo12YoL7wyPdyQgWz",
+           "id": "0h4SfXo12YoL7wyPdyQgWz",
+           "name": "Quotes Real",
+           "type": "artist",
+           "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+          }
+         ],
+         "external_urls": {
+          "spotify": "https://open.spotify.com/album/3NNkcRsN1wCOIqBN5CTV67"
+         },
+         "href": "https://api.spotify.com/v1/albums/3NNkcRsN1wCOIqBN5CTV67",
+         "id": "3NNkcRsN1wCOIqBN5CTV67",
+         "images": [
+          {
+           "height": 640,
+           "width": 640,
+           "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050"
+          },
+          {
+           "height": 300,
+           "width": 300,
+           "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050"
+          },
+          {
+           "height": 64,
+           "width": 64,
+           "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050"
+          }
+         ],
+         "is_playable": true,
+         "name": "Haunted by You",
+         "release_date": "2024-03-06",
+         "release_date_precision": "day",
+         "total_tracks": 1,
+         "type": "album",
+         "uri": "spotify:album:3NNkcRsN1wCOIqBN5CTV67"
+        },
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/0h4SfXo12YoL7wyPdyQgWz"
+          },
+          "href": "https://api.spotify.com/v1/artists/0h4SfXo12YoL7wyPdyQgWz",
+          "id": "0h4SfXo12YoL7wyPdyQgWz",
+          "name": "Quotes Real",
+          "type": "artist",
+          "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+         }
+        ],
+        "disc_number": 1,
+        "duration_ms": 191800,
+        "explicit": false,
+        "external_ids": {
+         "isrc": "SGB502457303"
+        },
+        "external_urls": {
+         "spotify": "https://open.spotify.com/track/0vKhCLTBjtTT9F9EKDvMLB"
+        },
+        "href": "https://api.spotify.com/v1/tracks/0vKhCLTBjtTT9F9EKDvMLB",
+        "id": "0vKhCLTBjtTT9F9EKDvMLB",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Haunted by You",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB"
+       },
+       {
+        "album": {
+         "album_type": "single",
+         "artists": [
+          {
+           "external_urls": {
+            "spotify": "https://open.spotify.com/artist/2Pkl0WtcOmRwsw3hO1t9oc"
+           },
+           "href": "https://api.spotify.com/v1/artists/2Pkl0WtcOmRwsw3hO1t9oc",
+           "id": "2Pkl0WtcOmRwsw3hO1t9oc",
+           "name": "Cast of M.W.C.A.",
+           "type": "artist",
+           "uri": "spotify:artist:2Pkl0WtcOmRwsw3hO1t9oc"
+          }
+         ],
+         "external_urls": {
+          "spotify": "https://open.spotify.com/album/6Q6u3GixZzra3Kf68Ccc55"
+         },
+         "href": "https://api.spotify.com/v1/albums/6Q6u3GixZzra3Kf68Ccc55",
+         "id": "6Q6u3GixZzra3Kf68Ccc55",
+         "images": [
+          {
+           "height": 640,
+           "width": 640,
+           "url": "https://i.scdn.co/image/ab67616d0000b2734ec741c47c4073d3170bb05c"
+          },
+          {
+           "height": 300,
+           "width": 300,
+           "url": "https://i.scdn.co/image/ab67616d00001e024ec741c47c4073d3170bb05c"
+          },
+          {
+           "height": 64,
+           "width": 64,
+           "url": "https://i.scdn.co/image/ab67616d000048514ec741c47c4073d3170bb05c"
+          }
+         ],
+         "is_playable": true,
+         "name": "Haunted by You (from \"Phineas and Ferb\") [Extended Cover]",
+         "release_date": "2025-10-27",
+         "release_date_precision": "day",
+         "total_tracks": 1,
+         "type": "album",
+         "uri": "spotify:album:6Q6u3GixZzra3Kf68Ccc55"
+        },
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/2Pkl0WtcOmRwsw3hO1t9oc"
+          },
+          "href": "https://api.spotify.com/v1/artists/2Pkl0WtcOmRwsw3hO1t9oc",
+          "id": "2Pkl0WtcOmRwsw3hO1t9oc",
+          "name": "Cast of M.W.C.A.",
+          "type": "artist",
+          "uri": "spotify:artist:2Pkl0WtcOmRwsw3hO1t9oc"
+         },
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/6n1tqNepo5pui1fCHS6z52"
+          },
+          "href": "https://api.spotify.com/v1/artists/6n1tqNepo5pui1fCHS6z52",
+          "id": "6n1tqNepo5pui1fCHS6z52",
+          "name": "RJ Christian",
+          "type": "artist",
+          "uri": "spotify:artist:6n1tqNepo5pui1fCHS6z52"
+         }
+        ],
+        "disc_number": 1,
+        "duration_ms": 240000,
+        "explicit": false,
+        "external_ids": {
+         "isrc": "QZPJ32518604"
+        },
+        "external_urls": {
+         "spotify": "https://open.spotify.com/track/64Akv1YvMoMKCQ6hLhPapB"
+        },
+        "href": "https://api.spotify.com/v1/tracks/64Akv1YvMoMKCQ6hLhPapB",
+        "id": "64Akv1YvMoMKCQ6hLhPapB",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Haunted by You (from \"Phineas and Ferb\") - Extended Cover",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:64Akv1YvMoMKCQ6hLhPapB"
+       },
+       {
+        "album": {
+         "album_type": "album",
+         "artists": [
+          {
+           "external_urls": {
+            "spotify": "https://open.spotify.com/artist/64tNsm6TnZe2zpcMVMOoHL"
+           },
+           "href": "https://api.spotify.com/v1/artists/64tNsm6TnZe2zpcMVMOoHL",
+           "id": "64tNsm6TnZe2zpcMVMOoHL",
+           "name": "Alice In Chains",
+           "type": "artist",
+           "uri": "spotify:artist:64tNsm6TnZe2zpcMVMOoHL"
+          }
+         ],
+         "external_urls": {
+          "spotify": "https://open.spotify.com/album/4puIIbtVV70tew9msnAEUY"
+         },
+         "href": "https://api.spotify.com/v1/albums/4puIIbtVV70tew9msnAEUY",
+         "id": "4puIIbtVV70tew9msnAEUY",
+         "images": [
+          {
+           "height": 640,
+           "width": 640,
+           "url": "https://i.scdn.co/image/ab67616d0000b2732aac6b7dae4a8813f5e28454"
+          },
+          {
+           "height": 300,
+           "width": 300,
+           "url": "https://i.scdn.co/image/ab67616d00001e022aac6b7dae4a8813f5e28454"
+          },
+          {
+           "height": 64,
+           "width": 64,
+           "url": "https://i.scdn.co/image/ab67616d000048512aac6b7dae4a8813f5e28454"
+          }
+         ],
+         "is_playable": true,
+         "name": "Black Gives Way To Blue",
+         "release_date": "2009-09-29",
+         "release_date_precision": "day",
+         "total_tracks": 13,
+         "type": "album",
+         "uri": "spotify:album:4puIIbtVV70tew9msnAEUY"
+        },
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/64tNsm6TnZe2zpcMVMOoHL"
+          },
+          "href": "https://api.spotify.com/v1/artists/64tNsm6TnZe2zpcMVMOoHL",
+          "id": "64tNsm6TnZe2zpcMVMOoHL",
+          "name": "Alice In Chains",
+          "type": "artist",
+          "uri": "spotify:artist:64tNsm6TnZe2zpcMVMOoHL"
+         }
+        ],
+        "disc_number": 1,
+        "duration_ms": 183560,
+        "explicit": false,
+        "external_ids": {
+         "isrc": "USVI20900300"
+        },
+        "external_urls": {
+         "spotify": "https://open.spotify.com/track/2qLVgbR1AkdVteaeBCg2gL"
+        },
+        "href": "https://api.spotify.com/v1/tracks/2qLVgbR1AkdVteaeBCg2gL",
+        "id": "2qLVgbR1AkdVteaeBCg2gL",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Black Gives Way To Blue",
+        "track_number": 11,
+        "type": "track",
+        "uri": "spotify:track:2qLVgbR1AkdVteaeBCg2gL"
+       }
+      ]
+     },
+     "artists": {
+      "href": "https://api.spotify.com/v1/search?offset=0&limit=3&query=haunted%20by%20you&type=artist",
+      "limit": 3,
+      "next": "https://api.spotify.com/v1/search?offset=3&limit=3&query=haunted%20by%20you&type=artist",
+      "offset": 0,
+      "previous": null,
+      "total": 5,
+      "items": [
+       {
+        "external_urls": {
+         "spotify": "https://open.spotify.com/artist/2yClxSQHoqAeiYVhafSWKU"
+        },
+        "href": "https://api.spotify.com/v1/artists/2yClxSQHoqAeiYVhafSWKU",
+        "id": "2yClxSQHoqAeiYVhafSWKU",
+        "images": [
+         {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb72d59f780507ab04aef63580",
+          "height": 640,
+          "width": 640
+         },
+         {
+          "url": "https://i.scdn.co/image/ab6761610000517472d59f780507ab04aef63580",
+          "height": 320,
+          "width": 320
+         },
+         {
+          "url": "https://i.scdn.co/image/ab6761610000f17872d59f780507ab04aef63580",
+          "height": 160,
+          "width": 160
+         }
+        ],
+        "name": "marg\u00f8",
+        "type": "artist",
+        "uri": "spotify:artist:2yClxSQHoqAeiYVhafSWKU"
+       },
+       {
+        "external_urls": {
+         "spotify": "https://open.spotify.com/artist/7IdR8aFHIS8h2GMRxuLDEG"
+        },
+        "href": "https://api.spotify.com/v1/artists/7IdR8aFHIS8h2GMRxuLDEG",
+        "id": "7IdR8aFHIS8h2GMRxuLDEG",
+        "images": [
+         {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb131d70cac4dc4c6d293acbe3",
+          "height": 640,
+          "width": 640
+         },
+         {
+          "url": "https://i.scdn.co/image/ab67616100005174131d70cac4dc4c6d293acbe3",
+          "height": 320,
+          "width": 320
+         },
+         {
+          "url": "https://i.scdn.co/image/ab6761610000f178131d70cac4dc4c6d293acbe3",
+          "height": 160,
+          "width": 160
+         }
+        ],
+        "name": "hauntedbyshxdow",
+        "type": "artist",
+        "uri": "spotify:artist:7IdR8aFHIS8h2GMRxuLDEG"
+       },
+       {
+        "external_urls": {
+         "spotify": "https://open.spotify.com/artist/30WjAh2XzVI7I8E0Buflbo"
+        },
+        "href": "https://api.spotify.com/v1/artists/30WjAh2XzVI7I8E0Buflbo",
+        "id": "30WjAh2XzVI7I8E0Buflbo",
+        "images": [
+         {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb9dd260c05e0b176d8cc25189",
+          "height": 640,
+          "width": 640
+         },
+         {
+          "url": "https://i.scdn.co/image/ab676161000051749dd260c05e0b176d8cc25189",
+          "height": 320,
+          "width": 320
+         },
+         {
+          "url": "https://i.scdn.co/image/ab6761610000f1789dd260c05e0b176d8cc25189",
+          "height": 160,
+          "width": 160
+         }
+        ],
+        "name": "MARGO",
+        "type": "artist",
+        "uri": "spotify:artist:30WjAh2XzVI7I8E0Buflbo"
+       }
+      ]
+     },
+     "albums": {
+      "href": "https://api.spotify.com/v1/search?offset=0&limit=3&query=haunted%20by%20you&type=album",
+      "limit": 3,
+      "next": "https://api.spotify.com/v1/search?offset=3&limit=3&query=haunted%20by%20you&type=album",
+      "offset": 0,
+      "previous": null,
+      "total": 9,
+      "items": [
+       {
+        "album_type": "single",
+        "total_tracks": 1,
+        "external_urls": {
+         "spotify": "https://open.spotify.com/album/6Q6u3GixZzra3Kf68Ccc55"
+        },
+        "href": "https://api.spotify.com/v1/albums/6Q6u3GixZzra3Kf68Ccc55",
+        "id": "6Q6u3GixZzra3Kf68Ccc55",
+        "images": [
+         {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b2734ec741c47c4073d3170bb05c",
+          "width": 640
+         },
+         {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e024ec741c47c4073d3170bb05c",
+          "width": 300
+         },
+         {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d000048514ec741c47c4073d3170bb05c",
+          "width": 64
+         }
+        ],
+        "name": "Haunted by You (from \"Phineas and Ferb\") [Extended Cover]",
+        "release_date": "2025-10-27",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:6Q6u3GixZzra3Kf68Ccc55",
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/2Pkl0WtcOmRwsw3hO1t9oc"
+          },
+          "href": "https://api.spotify.com/v1/artists/2Pkl0WtcOmRwsw3hO1t9oc",
+          "id": "2Pkl0WtcOmRwsw3hO1t9oc",
+          "name": "Cast of M.W.C.A.",
+          "type": "artist",
+          "uri": "spotify:artist:2Pkl0WtcOmRwsw3hO1t9oc"
+         }
+        ]
+       },
+       {
+        "album_type": "single",
+        "total_tracks": 2,
+        "external_urls": {
+         "spotify": "https://open.spotify.com/album/1QlKkGt9zVGidXBkqZwJcV"
+        },
+        "href": "https://api.spotify.com/v1/albums/1QlKkGt9zVGidXBkqZwJcV",
+        "id": "1QlKkGt9zVGidXBkqZwJcV",
+        "images": [
+         {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273f83b7adea7ce7c57d51c857f",
+          "width": 640
+         },
+         {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02f83b7adea7ce7c57d51c857f",
+          "width": 300
+         },
+         {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d00004851f83b7adea7ce7c57d51c857f",
+          "width": 64
+         }
+        ],
+        "name": "haunted by you",
+        "release_date": "2026-07-27",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:1QlKkGt9zVGidXBkqZwJcV",
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/1gQFVi4cn49x8hRJcKjtXQ"
+          },
+          "href": "https://api.spotify.com/v1/artists/1gQFVi4cn49x8hRJcKjtXQ",
+          "id": "1gQFVi4cn49x8hRJcKjtXQ",
+          "name": "butter",
+          "type": "artist",
+          "uri": "spotify:artist:1gQFVi4cn49x8hRJcKjtXQ"
+         }
+        ]
+       },
+       {
+        "album_type": "single",
+        "total_tracks": 1,
+        "external_urls": {
+         "spotify": "https://open.spotify.com/album/6dc1wwOJsJx7bJf9OxeW04"
+        },
+        "href": "https://api.spotify.com/v1/albums/6dc1wwOJsJx7bJf9OxeW04",
+        "id": "6dc1wwOJsJx7bJf9OxeW04",
+        "images": [
+         {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273863f7c0fe22c2e40e0f46f54",
+          "width": 640
+         },
+         {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02863f7c0fe22c2e40e0f46f54",
+          "width": 300
+         },
+         {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d00004851863f7c0fe22c2e40e0f46f54",
+          "width": 64
+         }
+        ],
+        "name": "Haunted By You",
+        "release_date": "2025-01-31",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:6dc1wwOJsJx7bJf9OxeW04",
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/51Rmu9mstzis4wE5v6c28R"
+          },
+          "href": "https://api.spotify.com/v1/artists/51Rmu9mstzis4wE5v6c28R",
+          "id": "51Rmu9mstzis4wE5v6c28R",
+          "name": "Kisaya",
+          "type": "artist",
+          "uri": "spotify:artist:51Rmu9mstzis4wE5v6c28R"
+         }
+        ]
+       }
+      ]
+     },
+     "playlists": {
+      "href": "https://api.spotify.com/v1/search?offset=0&limit=3&query=haunted%20by%20you&type=playlist",
+      "limit": 3,
+      "next": "https://api.spotify.com/v1/search?offset=3&limit=3&query=haunted%20by%20you&type=playlist",
+      "offset": 0,
+      "previous": null,
+      "total": 9,
+      "items": [
+       {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+         "spotify": "https://open.spotify.com/playlist/4oJdbAbRTDHlpkijc0uf8A"
+        },
+        "href": "https://api.spotify.com/v1/playlists/4oJdbAbRTDHlpkijc0uf8A",
+        "id": "4oJdbAbRTDHlpkijc0uf8A",
+        "images": [
+         {
+          "height": null,
+          "url": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84ab0cf8dfc59a0b7c945d2c4b",
+          "width": null
+         }
+        ],
+        "name": "Haunted by You",
+        "owner": {
+         "display_name": "ZETRA\u2049\ufe0f",
+         "external_urls": {
+          "spotify": "https://open.spotify.com/user/31zqtayuapgzv27hzxcxboomchy4"
+         },
+         "href": "https://api.spotify.com/v1/users/31zqtayuapgzv27hzxcxboomchy4",
+         "id": "31zqtayuapgzv27hzxcxboomchy4",
+         "type": "user",
+         "uri": "spotify:user:31zqtayuapgzv27hzxcxboomchy4"
+        },
+        "primary_color": null,
+        "public": true,
+        "snapshot_id": "AAAEOXydDqgIDco/iqFOgWeM6Vl/opVe",
+        "items": {
+         "href": "https://api.spotify.com/v1/playlists/4oJdbAbRTDHlpkijc0uf8A/items",
+         "total": 814
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:4oJdbAbRTDHlpkijc0uf8A"
+       },
+       null,
+       {
+        "collaborative": false,
+        "description": "\u201cTake me back to the night we met,i don&#x27;t know what ,I&#x27;m supposed to do,haunted by the ghost of you\u201d",
+        "external_urls": {
+         "spotify": "https://open.spotify.com/playlist/1JS2NRqjR87wTcon8vasjc"
+        },
+        "href": "https://api.spotify.com/v1/playlists/1JS2NRqjR87wTcon8vasjc",
+        "id": "1JS2NRqjR87wTcon8vasjc",
+        "images": [
+         {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e022c1f34ecc1929fb59908aad1ab67616d00001e027b1b6f41c1645af9757d5616ab67616d00001e02b4916183f769aca218acb85fab67616d00001e02fddfffec51b4580acae727c1",
+          "width": 640
+         },
+         {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e022c1f34ecc1929fb59908aad1ab67616d00001e027b1b6f41c1645af9757d5616ab67616d00001e02b4916183f769aca218acb85fab67616d00001e02fddfffec51b4580acae727c1",
+          "width": 300
+         },
+         {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e022c1f34ecc1929fb59908aad1ab67616d00001e027b1b6f41c1645af9757d5616ab67616d00001e02b4916183f769aca218acb85fab67616d00001e02fddfffec51b4580acae727c1",
+          "width": 60
+         }
+        ],
+        "name": "The night we met vibes:( ",
+        "owner": {
+         "display_name": "Chofysushi",
+         "external_urls": {
+          "spotify": "https://open.spotify.com/user/hc9swkhltnt8hdywssrn4qrtu"
+         },
+         "href": "https://api.spotify.com/v1/users/hc9swkhltnt8hdywssrn4qrtu",
+         "id": "hc9swkhltnt8hdywssrn4qrtu",
+         "type": "user",
+         "uri": "spotify:user:hc9swkhltnt8hdywssrn4qrtu"
+        },
+        "primary_color": null,
+        "public": true,
+        "snapshot_id": "AAAJyDzus6w5qXiq0+oLq3z4foLR6xqq",
+        "items": {
+         "href": "https://api.spotify.com/v1/playlists/1JS2NRqjR87wTcon8vasjc/items",
+         "total": 134
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:1JS2NRqjR87wTcon8vasjc"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/play",
+   "status": 200,
+   "note": "play-from-search",
+   "body": {
+    "uris": [
+     "spotify:track:0vKhCLTBjtTT9F9EKDvMLB"
+    ]
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-track",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 1405,
+    "timestamp": 1787436490779,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/pause",
+   "status": 200,
+   "note": "pause",
+   "body": {},
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-pause",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 1706,
+    "timestamp": 1787436492423,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/play",
+   "status": 200,
+   "note": "resume",
+   "body": {},
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-resume",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 3967,
+    "timestamp": 1787436494568,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/next",
+   "status": 200,
+   "note": "next",
+   "body": {},
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-next",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 0,
+    "timestamp": 1787436496785,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-next",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 0,
+    "timestamp": 1787436496785,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-next",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 0,
+    "timestamp": 1787436496785,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-next",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 0,
+    "timestamp": 1787436496785,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-next",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 0,
+    "timestamp": 1787436496785,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-next",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 0,
+    "timestamp": 1787436496785,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-next",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 0,
+    "timestamp": 1787436496785,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-next",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 0,
+    "timestamp": 1787436496785,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/previous",
+   "status": 403,
+   "note": "previous",
+   "body": {},
+   "resp": {
+    "detail": {
+     "ok": false,
+     "category": "premium_required",
+     "retry_after_seconds": null
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-prev",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 0,
+    "timestamp": 1787436499790,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/seek",
+   "status": 200,
+   "note": "seek-30s",
+   "body": {
+    "position_ms": 30000
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-seek",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 30000,
+    "timestamp": 1787436514125,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/volume",
+   "status": 200,
+   "note": "volume-42",
+   "body": {
+    "volume_percent": 42
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/devices",
+   "status": 200,
+   "note": "",
+   "body": "after-volume",
+   "resp": {
+    "ok": true,
+    "devices": [
+     {
+      "id": "1988062662f82c365680af558b93d3c14ce43257",
+      "name": "archlinux",
+      "type": "Computer",
+      "is_active": true,
+      "is_restricted": false,
+      "volume_percent": 100,
+      "can_transfer": true,
+      "can_adjust_volume": true
+     }
+    ]
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/volume",
+   "status": 200,
+   "note": "volume-restore",
+   "body": {
+    "volume_percent": 100
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/shuffle",
+   "status": 200,
+   "note": "shuffle-on",
+   "body": {
+    "state": true
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-shuffle-on",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 30000,
+    "timestamp": 1787436514121,
+    "shuffle_state": true,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 42,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/shuffle",
+   "status": 200,
+   "note": "shuffle-off",
+   "body": {
+    "state": false
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-shuffle-off",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 30000,
+    "timestamp": 1787436513889,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/queue",
+   "status": 200,
+   "note": "add-to-queue",
+   "body": {
+    "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB"
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/queue",
+   "status": 200,
+   "note": "",
+   "body": "queue-after-add",
+   "resp": {
+    "ok": true,
+    "currently_playing": {
+     "id": "0vKhCLTBjtTT9F9EKDvMLB",
+     "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+     "name": "Haunted by You",
+     "duration_ms": 191800,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "0h4SfXo12YoL7wyPdyQgWz",
+       "name": "Quotes Real",
+       "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+      }
+     ],
+     "album": {
+      "id": "3NNkcRsN1wCOIqBN5CTV67",
+      "name": "Haunted by You",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "queue": [
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     },
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     },
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     },
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     },
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     },
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     },
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     },
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     },
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     },
+     {
+      "id": "0vKhCLTBjtTT9F9EKDvMLB",
+      "uri": "spotify:track:0vKhCLTBjtTT9F9EKDvMLB",
+      "name": "Haunted by You",
+      "duration_ms": 191800,
+      "explicit": false,
+      "artists": [
+       {
+        "id": "0h4SfXo12YoL7wyPdyQgWz",
+        "name": "Quotes Real",
+        "uri": "spotify:artist:0h4SfXo12YoL7wyPdyQgWz"
+       }
+      ],
+      "album": {
+       "id": "3NNkcRsN1wCOIqBN5CTV67",
+       "name": "Haunted by You",
+       "images": [
+        {
+         "url": "https://i.scdn.co/image/ab67616d0000b2731995170ae67aed83de652050",
+         "width": 640,
+         "height": 640
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d00001e021995170ae67aed83de652050",
+         "width": 300,
+         "height": 300
+        },
+        {
+         "url": "https://i.scdn.co/image/ab67616d000048511995170ae67aed83de652050",
+         "width": 64,
+         "height": 64
+        }
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/search?q=lead%20sails%20paper%20anchor&limit=3",
+   "status": 200,
+   "note": "",
+   "body": "find-album",
+   "resp": {
+    "ok": true,
+    "results": {
+     "tracks": {
+      "href": "https://api.spotify.com/v1/search?offset=0&limit=3&query=lead%20sails%20paper%20anchor&type=track",
+      "limit": 3,
+      "next": "https://api.spotify.com/v1/search?offset=3&limit=3&query=lead%20sails%20paper%20anchor&type=track",
+      "offset": 0,
+      "previous": null,
+      "total": 414,
+      "items": [
+       {
+        "album": {
+         "album_type": "album",
+         "artists": [
+          {
+           "external_urls": {
+            "spotify": "https://open.spotify.com/artist/3LkSiHbjqOHCKCqBfEZOTv"
+           },
+           "href": "https://api.spotify.com/v1/artists/3LkSiHbjqOHCKCqBfEZOTv",
+           "id": "3LkSiHbjqOHCKCqBfEZOTv",
+           "name": "Atreyu",
+           "type": "artist",
+           "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+          }
+         ],
+         "external_urls": {
+          "spotify": "https://open.spotify.com/album/4zODET967NN009YRlHxkq1"
+         },
+         "href": "https://api.spotify.com/v1/albums/4zODET967NN009YRlHxkq1",
+         "id": "4zODET967NN009YRlHxkq1",
+         "images": [
+          {
+           "height": 640,
+           "width": 640,
+           "url": "https://i.scdn.co/image/ab67616d0000b273b340525267da11dc005d9f41"
+          },
+          {
+           "height": 300,
+           "width": 300,
+           "url": "https://i.scdn.co/image/ab67616d00001e02b340525267da11dc005d9f41"
+          },
+          {
+           "height": 64,
+           "width": 64,
+           "url": "https://i.scdn.co/image/ab67616d00004851b340525267da11dc005d9f41"
+          }
+         ],
+         "is_playable": true,
+         "name": "Lead Sails Paper Anchor",
+         "release_date": "2007-09-25",
+         "release_date_precision": "day",
+         "total_tracks": 11,
+         "type": "album",
+         "uri": "spotify:album:4zODET967NN009YRlHxkq1"
+        },
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/3LkSiHbjqOHCKCqBfEZOTv"
+          },
+          "href": "https://api.spotify.com/v1/artists/3LkSiHbjqOHCKCqBfEZOTv",
+          "id": "3LkSiHbjqOHCKCqBfEZOTv",
+          "name": "Atreyu",
+          "type": "artist",
+          "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+         }
+        ],
+        "disc_number": 1,
+        "duration_ms": 256160,
+        "explicit": false,
+        "external_ids": {
+         "isrc": "USHR10723380"
+        },
+        "external_urls": {
+         "spotify": "https://open.spotify.com/track/1mmaM159G5s9bZD8dUwidN"
+        },
+        "href": "https://api.spotify.com/v1/tracks/1mmaM159G5s9bZD8dUwidN",
+        "id": "1mmaM159G5s9bZD8dUwidN",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Lead Sails (And A Paper Anchor)",
+        "track_number": 11,
+        "type": "track",
+        "uri": "spotify:track:1mmaM159G5s9bZD8dUwidN"
+       },
+       {
+        "album": {
+         "album_type": "album",
+         "artists": [
+          {
+           "external_urls": {
+            "spotify": "https://open.spotify.com/artist/3LkSiHbjqOHCKCqBfEZOTv"
+           },
+           "href": "https://api.spotify.com/v1/artists/3LkSiHbjqOHCKCqBfEZOTv",
+           "id": "3LkSiHbjqOHCKCqBfEZOTv",
+           "name": "Atreyu",
+           "type": "artist",
+           "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+          }
+         ],
+         "external_urls": {
+          "spotify": "https://open.spotify.com/album/4l0jcq2jRyRO38d1U92vkp"
+         },
+         "href": "https://api.spotify.com/v1/albums/4l0jcq2jRyRO38d1U92vkp",
+         "id": "4l0jcq2jRyRO38d1U92vkp",
+         "images": [
+          {
+           "height": 640,
+           "width": 640,
+           "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848"
+          },
+          {
+           "height": 300,
+           "width": 300,
+           "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848"
+          },
+          {
+           "height": 64,
+           "width": 64,
+           "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848"
+          }
+         ],
+         "is_playable": true,
+         "name": "Lead Sails Paper Anchor",
+         "release_date": "2007-01-01",
+         "release_date_precision": "day",
+         "total_tracks": 11,
+         "type": "album",
+         "uri": "spotify:album:4l0jcq2jRyRO38d1U92vkp"
+        },
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/3LkSiHbjqOHCKCqBfEZOTv"
+          },
+          "href": "https://api.spotify.com/v1/artists/3LkSiHbjqOHCKCqBfEZOTv",
+          "id": "3LkSiHbjqOHCKCqBfEZOTv",
+          "name": "Atreyu",
+          "type": "artist",
+          "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+         }
+        ],
+        "disc_number": 1,
+        "duration_ms": 220600,
+        "explicit": false,
+        "external_ids": {
+         "isrc": "USHR10723245"
+        },
+        "external_urls": {
+         "spotify": "https://open.spotify.com/track/2MMrjobPrVLrozyfFXsFJx"
+        },
+        "href": "https://api.spotify.com/v1/tracks/2MMrjobPrVLrozyfFXsFJx",
+        "id": "2MMrjobPrVLrozyfFXsFJx",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Becoming the Bull",
+        "track_number": 4,
+        "type": "track",
+        "uri": "spotify:track:2MMrjobPrVLrozyfFXsFJx"
+       },
+       {
+        "album": {
+         "album_type": "album",
+         "artists": [
+          {
+           "external_urls": {
+            "spotify": "https://open.spotify.com/artist/3yfWUSGy6eKYNr7hOeJ52Y"
+           },
+           "href": "https://api.spotify.com/v1/artists/3yfWUSGy6eKYNr7hOeJ52Y",
+           "id": "3yfWUSGy6eKYNr7hOeJ52Y",
+           "name": "Richie Cunning",
+           "type": "artist",
+           "uri": "spotify:artist:3yfWUSGy6eKYNr7hOeJ52Y"
+          }
+         ],
+         "external_urls": {
+          "spotify": "https://open.spotify.com/album/1x69uilYROlB9Swzq6KpmB"
+         },
+         "href": "https://api.spotify.com/v1/albums/1x69uilYROlB9Swzq6KpmB",
+         "id": "1x69uilYROlB9Swzq6KpmB",
+         "images": [
+          {
+           "height": 640,
+           "width": 640,
+           "url": "https://i.scdn.co/image/ab67616d0000b273ac3ccbaf4353976d545c9571"
+          },
+          {
+           "height": 300,
+           "width": 300,
+           "url": "https://i.scdn.co/image/ab67616d00001e02ac3ccbaf4353976d545c9571"
+          },
+          {
+           "height": 64,
+           "width": 64,
+           "url": "https://i.scdn.co/image/ab67616d00004851ac3ccbaf4353976d545c9571"
+          }
+         ],
+         "is_playable": true,
+         "name": "1906",
+         "release_date": "2015-10-02",
+         "release_date_precision": "day",
+         "total_tracks": 7,
+         "type": "album",
+         "uri": "spotify:album:1x69uilYROlB9Swzq6KpmB"
+        },
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/3yfWUSGy6eKYNr7hOeJ52Y"
+          },
+          "href": "https://api.spotify.com/v1/artists/3yfWUSGy6eKYNr7hOeJ52Y",
+          "id": "3yfWUSGy6eKYNr7hOeJ52Y",
+          "name": "Richie Cunning",
+          "type": "artist",
+          "uri": "spotify:artist:3yfWUSGy6eKYNr7hOeJ52Y"
+         }
+        ],
+        "disc_number": 1,
+        "duration_ms": 218602,
+        "explicit": true,
+        "external_ids": {
+         "isrc": "QM4DW1554313"
+        },
+        "external_urls": {
+         "spotify": "https://open.spotify.com/track/00EE6U2juZMvGuMUCTHuas"
+        },
+        "href": "https://api.spotify.com/v1/tracks/00EE6U2juZMvGuMUCTHuas",
+        "id": "00EE6U2juZMvGuMUCTHuas",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Pure Imagination",
+        "track_number": 6,
+        "type": "track",
+        "uri": "spotify:track:00EE6U2juZMvGuMUCTHuas"
+       }
+      ]
+     },
+     "artists": {
+      "href": "https://api.spotify.com/v1/search?offset=0&limit=3&query=lead%20sails%20paper%20anchor&type=artist",
+      "limit": 3,
+      "next": "https://api.spotify.com/v1/search?offset=3&limit=3&query=lead%20sails%20paper%20anchor&type=artist",
+      "offset": 0,
+      "previous": null,
+      "total": 101,
+      "items": [
+       {
+        "external_urls": {
+         "spotify": "https://open.spotify.com/artist/3LkSiHbjqOHCKCqBfEZOTv"
+        },
+        "href": "https://api.spotify.com/v1/artists/3LkSiHbjqOHCKCqBfEZOTv",
+        "id": "3LkSiHbjqOHCKCqBfEZOTv",
+        "images": [
+         {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb9095ac7e53a8d941eac2805c",
+          "height": 640,
+          "width": 640
+         },
+         {
+          "url": "https://i.scdn.co/image/ab676161000051749095ac7e53a8d941eac2805c",
+          "height": 320,
+          "width": 320
+         },
+         {
+          "url": "https://i.scdn.co/image/ab6761610000f1789095ac7e53a8d941eac2805c",
+          "height": 160,
+          "width": 160
+         }
+        ],
+        "name": "Atreyu",
+        "type": "artist",
+        "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+       },
+       {
+        "external_urls": {
+         "spotify": "https://open.spotify.com/artist/2pAajGWerK3ghwToNWFENS"
+        },
+        "href": "https://api.spotify.com/v1/artists/2pAajGWerK3ghwToNWFENS",
+        "id": "2pAajGWerK3ghwToNWFENS",
+        "images": [
+         {
+          "url": "https://i.scdn.co/image/ab6761610000e5ebc5ded67e640e10c8141e9c9f",
+          "height": 640,
+          "width": 640
+         },
+         {
+          "url": "https://i.scdn.co/image/ab67616100005174c5ded67e640e10c8141e9c9f",
+          "height": 320,
+          "width": 320
+         },
+         {
+          "url": "https://i.scdn.co/image/ab6761610000f178c5ded67e640e10c8141e9c9f",
+          "height": 160,
+          "width": 160
+         }
+        ],
+        "name": "Puscifer",
+        "type": "artist",
+        "uri": "spotify:artist:2pAajGWerK3ghwToNWFENS"
+       },
+       {
+        "external_urls": {
+         "spotify": "https://open.spotify.com/artist/538iX6YCTybcgzsrjDTrFi"
+        },
+        "href": "https://api.spotify.com/v1/artists/538iX6YCTybcgzsrjDTrFi",
+        "id": "538iX6YCTybcgzsrjDTrFi",
+        "images": [
+         {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb107cf7007e710fc7c68046fe",
+          "height": 640,
+          "width": 640
+         },
+         {
+          "url": "https://i.scdn.co/image/ab67616100005174107cf7007e710fc7c68046fe",
+          "height": 320,
+          "width": 320
+         },
+         {
+          "url": "https://i.scdn.co/image/ab6761610000f178107cf7007e710fc7c68046fe",
+          "height": 160,
+          "width": 160
+         }
+        ],
+        "name": "LEAP",
+        "type": "artist",
+        "uri": "spotify:artist:538iX6YCTybcgzsrjDTrFi"
+       }
+      ]
+     },
+     "albums": {
+      "href": "https://api.spotify.com/v1/search?offset=0&limit=3&query=lead%20sails%20paper%20anchor&type=album",
+      "limit": 3,
+      "next": "https://api.spotify.com/v1/search?offset=3&limit=3&query=lead%20sails%20paper%20anchor&type=album",
+      "offset": 0,
+      "previous": null,
+      "total": 101,
+      "items": [
+       {
+        "album_type": "album",
+        "total_tracks": 11,
+        "external_urls": {
+         "spotify": "https://open.spotify.com/album/4l0jcq2jRyRO38d1U92vkp"
+        },
+        "href": "https://api.spotify.com/v1/albums/4l0jcq2jRyRO38d1U92vkp",
+        "id": "4l0jcq2jRyRO38d1U92vkp",
+        "images": [
+         {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848",
+          "width": 640
+         },
+         {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848",
+          "width": 300
+         },
+         {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848",
+          "width": 64
+         }
+        ],
+        "name": "Lead Sails Paper Anchor",
+        "release_date": "2007-01-01",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:4l0jcq2jRyRO38d1U92vkp",
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/3LkSiHbjqOHCKCqBfEZOTv"
+          },
+          "href": "https://api.spotify.com/v1/artists/3LkSiHbjqOHCKCqBfEZOTv",
+          "id": "3LkSiHbjqOHCKCqBfEZOTv",
+          "name": "Atreyu",
+          "type": "artist",
+          "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+         }
+        ]
+       },
+       {
+        "album_type": "album",
+        "total_tracks": 11,
+        "external_urls": {
+         "spotify": "https://open.spotify.com/album/4zODET967NN009YRlHxkq1"
+        },
+        "href": "https://api.spotify.com/v1/albums/4zODET967NN009YRlHxkq1",
+        "id": "4zODET967NN009YRlHxkq1",
+        "images": [
+         {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273b340525267da11dc005d9f41",
+          "width": 640
+         },
+         {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02b340525267da11dc005d9f41",
+          "width": 300
+         },
+         {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d00004851b340525267da11dc005d9f41",
+          "width": 64
+         }
+        ],
+        "name": "Lead Sails Paper Anchor",
+        "release_date": "2007-09-25",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:4zODET967NN009YRlHxkq1",
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/3LkSiHbjqOHCKCqBfEZOTv"
+          },
+          "href": "https://api.spotify.com/v1/artists/3LkSiHbjqOHCKCqBfEZOTv",
+          "id": "3LkSiHbjqOHCKCqBfEZOTv",
+          "name": "Atreyu",
+          "type": "artist",
+          "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+         }
+        ]
+       },
+       {
+        "album_type": "single",
+        "total_tracks": 1,
+        "external_urls": {
+         "spotify": "https://open.spotify.com/album/3rQWUI8dZgErXYF9OqaVhu"
+        },
+        "href": "https://api.spotify.com/v1/albums/3rQWUI8dZgErXYF9OqaVhu",
+        "id": "3rQWUI8dZgErXYF9OqaVhu",
+        "images": [
+         {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273645a980ed42252bb7f4144ff",
+          "width": 640
+         },
+         {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02645a980ed42252bb7f4144ff",
+          "width": 300
+         },
+         {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d00004851645a980ed42252bb7f4144ff",
+          "width": 64
+         }
+        ],
+        "name": "Paper Sails && Lead Anchors",
+        "release_date": "2024-09-05",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:3rQWUI8dZgErXYF9OqaVhu",
+        "artists": [
+         {
+          "external_urls": {
+           "spotify": "https://open.spotify.com/artist/5qW284f5XrrDfziUSaUdcY"
+          },
+          "href": "https://api.spotify.com/v1/artists/5qW284f5XrrDfziUSaUdcY",
+          "id": "5qW284f5XrrDfziUSaUdcY",
+          "name": "Basilica",
+          "type": "artist",
+          "uri": "spotify:artist:5qW284f5XrrDfziUSaUdcY"
+         }
+        ]
+       }
+      ]
+     },
+     "playlists": {
+      "href": "https://api.spotify.com/v1/search?offset=0&limit=3&query=lead%20sails%20paper%20anchor&type=playlist",
+      "limit": 3,
+      "next": "https://api.spotify.com/v1/search?offset=3&limit=3&query=lead%20sails%20paper%20anchor&type=playlist",
+      "offset": 0,
+      "previous": null,
+      "total": 104,
+      "items": [
+       {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+         "spotify": "https://open.spotify.com/playlist/5fbjjR82Yv9qiwZL3hgong"
+        },
+        "href": "https://api.spotify.com/v1/playlists/5fbjjR82Yv9qiwZL3hgong",
+        "id": "5fbjjR82Yv9qiwZL3hgong",
+        "images": [
+         {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e027a24c49db6b41e0f7aa98847ab67616d00001e0296f36849e2aa357750f444dcab67616d00001e02b340525267da11dc005d9f41ab67616d00001e02e5a42f2d88e66041416180eb",
+          "width": 640
+         },
+         {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e027a24c49db6b41e0f7aa98847ab67616d00001e0296f36849e2aa357750f444dcab67616d00001e02b340525267da11dc005d9f41ab67616d00001e02e5a42f2d88e66041416180eb",
+          "width": 300
+         },
+         {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e027a24c49db6b41e0f7aa98847ab67616d00001e0296f36849e2aa357750f444dcab67616d00001e02b340525267da11dc005d9f41ab67616d00001e02e5a42f2d88e66041416180eb",
+          "width": 60
+         }
+        ],
+        "name": "Lead Sails Paper Anchor",
+        "owner": {
+         "display_name": "Lexi",
+         "external_urls": {
+          "spotify": "https://open.spotify.com/user/31yqp5mqig5t3g6ujdaxksfcn6ie"
+         },
+         "href": "https://api.spotify.com/v1/users/31yqp5mqig5t3g6ujdaxksfcn6ie",
+         "id": "31yqp5mqig5t3g6ujdaxksfcn6ie",
+         "type": "user",
+         "uri": "spotify:user:31yqp5mqig5t3g6ujdaxksfcn6ie"
+        },
+        "primary_color": null,
+        "public": true,
+        "snapshot_id": "AAAAFqSoJsDhj/e9P2cUqIqSSJJbIYvd",
+        "items": {
+         "href": "https://api.spotify.com/v1/playlists/5fbjjR82Yv9qiwZL3hgong/items",
+         "total": 15
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:5fbjjR82Yv9qiwZL3hgong"
+       },
+       null,
+       {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+         "spotify": "https://open.spotify.com/playlist/4f9Hdk7JdYxMHxOuJ0hE0g"
+        },
+        "href": "https://api.spotify.com/v1/playlists/4f9Hdk7JdYxMHxOuJ0hE0g",
+        "id": "4f9Hdk7JdYxMHxOuJ0hE0g",
+        "images": [
+         {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e02426885adbae74402b2faed65ab67616d00001e02511c9ccc4b283dd7399c7511ab67616d00001e025236fd81ac508183b620fedeab67616d00001e02fc3f7e897f01305e2aa9ae15",
+          "width": 640
+         },
+         {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e02426885adbae74402b2faed65ab67616d00001e02511c9ccc4b283dd7399c7511ab67616d00001e025236fd81ac508183b620fedeab67616d00001e02fc3f7e897f01305e2aa9ae15",
+          "width": 300
+         },
+         {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e02426885adbae74402b2faed65ab67616d00001e02511c9ccc4b283dd7399c7511ab67616d00001e025236fd81ac508183b620fedeab67616d00001e02fc3f7e897f01305e2aa9ae15",
+          "width": 60
+         }
+        ],
+        "name": "\ud83e\udd80CRABCORE BITCH\ud83e\udd80",
+        "owner": {
+         "display_name": "lola",
+         "external_urls": {
+          "spotify": "https://open.spotify.com/user/surfcurse"
+         },
+         "href": "https://api.spotify.com/v1/users/surfcurse",
+         "id": "surfcurse",
+         "type": "user",
+         "uri": "spotify:user:surfcurse"
+        },
+        "primary_color": null,
+        "public": true,
+        "snapshot_id": "AAAAI9R9jv4gTzJj1cULA/fDHJdFAWyP",
+        "items": {
+         "href": "https://api.spotify.com/v1/playlists/4f9Hdk7JdYxMHxOuJ0hE0g/items",
+         "total": 34
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:4f9Hdk7JdYxMHxOuJ0hE0g"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/play",
+   "status": 200,
+   "note": "play-album-context",
+   "body": {
+    "context_uri": "spotify:album:4l0jcq2jRyRO38d1U92vkp"
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-album",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 1366,
+    "timestamp": 1787436525854,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3SGjDswfGtYGGJaPZvvmX5",
+     "uri": "spotify:track:3SGjDswfGtYGGJaPZvvmX5",
+     "name": "Doomsday - Album Version (Edited)",
+     "duration_ms": 199600,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "3LkSiHbjqOHCKCqBfEZOTv",
+       "name": "Atreyu",
+       "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+      }
+     ],
+     "album": {
+      "id": "4l0jcq2jRyRO38d1U92vkp",
+      "name": "Lead Sails Paper Anchor",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-album",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 3187,
+    "timestamp": 1787436525854,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3SGjDswfGtYGGJaPZvvmX5",
+     "uri": "spotify:track:3SGjDswfGtYGGJaPZvvmX5",
+     "name": "Doomsday - Album Version (Edited)",
+     "duration_ms": 199600,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "3LkSiHbjqOHCKCqBfEZOTv",
+       "name": "Atreyu",
+       "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+      }
+     ],
+     "album": {
+      "id": "4l0jcq2jRyRO38d1U92vkp",
+      "name": "Lead Sails Paper Anchor",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-album",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 5086,
+    "timestamp": 1787436525854,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3SGjDswfGtYGGJaPZvvmX5",
+     "uri": "spotify:track:3SGjDswfGtYGGJaPZvvmX5",
+     "name": "Doomsday - Album Version (Edited)",
+     "duration_ms": 199600,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "3LkSiHbjqOHCKCqBfEZOTv",
+       "name": "Atreyu",
+       "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+      }
+     ],
+     "album": {
+      "id": "4l0jcq2jRyRO38d1U92vkp",
+      "name": "Lead Sails Paper Anchor",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-album",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 6927,
+    "timestamp": 1787436525854,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3SGjDswfGtYGGJaPZvvmX5",
+     "uri": "spotify:track:3SGjDswfGtYGGJaPZvvmX5",
+     "name": "Doomsday - Album Version (Edited)",
+     "duration_ms": 199600,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "3LkSiHbjqOHCKCqBfEZOTv",
+       "name": "Atreyu",
+       "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+      }
+     ],
+     "album": {
+      "id": "4l0jcq2jRyRO38d1U92vkp",
+      "name": "Lead Sails Paper Anchor",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-album",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 8824,
+    "timestamp": 1787436525854,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3SGjDswfGtYGGJaPZvvmX5",
+     "uri": "spotify:track:3SGjDswfGtYGGJaPZvvmX5",
+     "name": "Doomsday - Album Version (Edited)",
+     "duration_ms": 199600,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "3LkSiHbjqOHCKCqBfEZOTv",
+       "name": "Atreyu",
+       "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+      }
+     ],
+     "album": {
+      "id": "4l0jcq2jRyRO38d1U92vkp",
+      "name": "Lead Sails Paper Anchor",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-album",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 10621,
+    "timestamp": 1787436525854,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3SGjDswfGtYGGJaPZvvmX5",
+     "uri": "spotify:track:3SGjDswfGtYGGJaPZvvmX5",
+     "name": "Doomsday - Album Version (Edited)",
+     "duration_ms": 199600,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "3LkSiHbjqOHCKCqBfEZOTv",
+       "name": "Atreyu",
+       "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+      }
+     ],
+     "album": {
+      "id": "4l0jcq2jRyRO38d1U92vkp",
+      "name": "Lead Sails Paper Anchor",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-album",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 12513,
+    "timestamp": 1787436525854,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3SGjDswfGtYGGJaPZvvmX5",
+     "uri": "spotify:track:3SGjDswfGtYGGJaPZvvmX5",
+     "name": "Doomsday - Album Version (Edited)",
+     "duration_ms": 199600,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "3LkSiHbjqOHCKCqBfEZOTv",
+       "name": "Atreyu",
+       "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+      }
+     ],
+     "album": {
+      "id": "4l0jcq2jRyRO38d1U92vkp",
+      "name": "Lead Sails Paper Anchor",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-album",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 14332,
+    "timestamp": 1787436525854,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "3SGjDswfGtYGGJaPZvvmX5",
+     "uri": "spotify:track:3SGjDswfGtYGGJaPZvvmX5",
+     "name": "Doomsday - Album Version (Edited)",
+     "duration_ms": 199600,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "3LkSiHbjqOHCKCqBfEZOTv",
+       "name": "Atreyu",
+       "uri": "spotify:artist:3LkSiHbjqOHCKCqBfEZOTv"
+      }
+     ],
+     "album": {
+      "id": "4l0jcq2jRyRO38d1U92vkp",
+      "name": "Lead Sails Paper Anchor",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273c4e281432d1aa2fdced52848",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02c4e281432d1aa2fdced52848",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851c4e281432d1aa2fdced52848",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playlists?limit=5",
+   "status": 200,
+   "note": "",
+   "body": "my-playlists",
+   "resp": {
+    "ok": true,
+    "page": {
+     "href": "https://api.spotify.com/v1/me/playlists?offset=0&limit=5",
+     "limit": 5,
+     "next": null,
+     "offset": 0,
+     "previous": null,
+     "total": 2,
+     "items": [
+      {
+       "collaborative": false,
+       "description": "",
+       "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/1Cr4nMXW3suijuKyk58dwC"
+       },
+       "href": "https://api.spotify.com/v1/playlists/1Cr4nMXW3suijuKyk58dwC",
+       "id": "1Cr4nMXW3suijuKyk58dwC",
+       "images": [
+        {
+         "height": 640,
+         "url": "https://mosaic.scdn.co/640/ab67616d00001e021f9edf15e43f4c2f4938b869ab67616d00001e022d0e5ab5bd2e234fbcffa3e0ab67616d00001e0254ab617bc2d4974ab6ffbeceab67616d00001e02e175a19e530c898d167d39bf",
+         "width": 640
+        },
+        {
+         "height": 300,
+         "url": "https://mosaic.scdn.co/300/ab67616d00001e021f9edf15e43f4c2f4938b869ab67616d00001e022d0e5ab5bd2e234fbcffa3e0ab67616d00001e0254ab617bc2d4974ab6ffbeceab67616d00001e02e175a19e530c898d167d39bf",
+         "width": 300
+        },
+        {
+         "height": 60,
+         "url": "https://mosaic.scdn.co/60/ab67616d00001e021f9edf15e43f4c2f4938b869ab67616d00001e022d0e5ab5bd2e234fbcffa3e0ab67616d00001e0254ab617bc2d4974ab6ffbeceab67616d00001e02e175a19e530c898d167d39bf",
+         "width": 60
+        }
+       ],
+       "name": "90's Rock & Metal Gym",
+       "owner": {
+        "display_name": "Tony Simons",
+        "external_urls": {
+         "spotify": "https://open.spotify.com/user/zblvuecyxm9xdxopqhn7kpipx"
+        },
+        "href": "https://api.spotify.com/v1/users/zblvuecyxm9xdxopqhn7kpipx",
+        "id": "zblvuecyxm9xdxopqhn7kpipx",
+        "type": "user",
+        "uri": "spotify:user:zblvuecyxm9xdxopqhn7kpipx"
+       },
+       "primary_color": null,
+       "public": true,
+       "snapshot_id": "AAAAEruSHHNxdxsJytVkhlMSSdJNRlI/",
+       "items": {
+        "href": "https://api.spotify.com/v1/playlists/1Cr4nMXW3suijuKyk58dwC/items",
+        "total": 16
+       },
+       "type": "playlist",
+       "uri": "spotify:playlist:1Cr4nMXW3suijuKyk58dwC"
+      },
+      {
+       "collaborative": false,
+       "description": "",
+       "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/2Nbux9DuOPFADD7pPVGy3C"
+       },
+       "href": "https://api.spotify.com/v1/playlists/2Nbux9DuOPFADD7pPVGy3C",
+       "id": "2Nbux9DuOPFADD7pPVGy3C",
+       "images": [
+        {
+         "height": null,
+         "url": "https://image-cdn-fa.spotifycdn.com/image/ab676d63000076a059f368ab580586b3904788fc",
+         "width": null
+        }
+       ],
+       "name": "Ozzy Osbourne's Greatest Hits",
+       "owner": {
+        "display_name": "Tony Simons",
+        "external_urls": {
+         "spotify": "https://open.spotify.com/user/zblvuecyxm9xdxopqhn7kpipx"
+        },
+        "href": "https://api.spotify.com/v1/users/zblvuecyxm9xdxopqhn7kpipx",
+        "id": "zblvuecyxm9xdxopqhn7kpipx",
+        "type": "user",
+        "uri": "spotify:user:zblvuecyxm9xdxopqhn7kpipx"
+       },
+       "primary_color": null,
+       "public": true,
+       "snapshot_id": "AAAAAhy+w4PyLNbbhCQv/qR0nYu0wkMx",
+       "items": {
+        "href": "https://api.spotify.com/v1/playlists/2Nbux9DuOPFADD7pPVGy3C/items",
+        "total": 30
+       },
+       "type": "playlist",
+       "uri": "spotify:playlist:2Nbux9DuOPFADD7pPVGy3C"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/play",
+   "status": 200,
+   "note": "play-playlist-context",
+   "body": {
+    "context_uri": "spotify:playlist:1Cr4nMXW3suijuKyk58dwC"
+   },
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-playlist",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 1914,
+    "timestamp": 1787436541055,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "5ghIJDpPoe3CfHMGu71E6T",
+     "uri": "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+     "name": "Smells Like Teen Spirit",
+     "duration_ms": 301920,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "6olE6TJLqED3rqDCT0FyPh",
+       "name": "Nirvana",
+       "uri": "spotify:artist:6olE6TJLqED3rqDCT0FyPh"
+      }
+     ],
+     "album": {
+      "id": "2guirTSEqLizK7j9i1MTTZ",
+      "name": "Nevermind (Remastered)",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02e175a19e530c898d167d39bf",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851e175a19e530c898d167d39bf",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-playlist",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 3833,
+    "timestamp": 1787436541055,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "5ghIJDpPoe3CfHMGu71E6T",
+     "uri": "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+     "name": "Smells Like Teen Spirit",
+     "duration_ms": 301920,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "6olE6TJLqED3rqDCT0FyPh",
+       "name": "Nirvana",
+       "uri": "spotify:artist:6olE6TJLqED3rqDCT0FyPh"
+      }
+     ],
+     "album": {
+      "id": "2guirTSEqLizK7j9i1MTTZ",
+      "name": "Nevermind (Remastered)",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02e175a19e530c898d167d39bf",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851e175a19e530c898d167d39bf",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-playlist",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 5630,
+    "timestamp": 1787436541055,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "5ghIJDpPoe3CfHMGu71E6T",
+     "uri": "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+     "name": "Smells Like Teen Spirit",
+     "duration_ms": 301920,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "6olE6TJLqED3rqDCT0FyPh",
+       "name": "Nirvana",
+       "uri": "spotify:artist:6olE6TJLqED3rqDCT0FyPh"
+      }
+     ],
+     "album": {
+      "id": "2guirTSEqLizK7j9i1MTTZ",
+      "name": "Nevermind (Remastered)",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02e175a19e530c898d167d39bf",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851e175a19e530c898d167d39bf",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-playlist",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 7482,
+    "timestamp": 1787436541055,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "5ghIJDpPoe3CfHMGu71E6T",
+     "uri": "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+     "name": "Smells Like Teen Spirit",
+     "duration_ms": 301920,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "6olE6TJLqED3rqDCT0FyPh",
+       "name": "Nirvana",
+       "uri": "spotify:artist:6olE6TJLqED3rqDCT0FyPh"
+      }
+     ],
+     "album": {
+      "id": "2guirTSEqLizK7j9i1MTTZ",
+      "name": "Nevermind (Remastered)",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02e175a19e530c898d167d39bf",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851e175a19e530c898d167d39bf",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-playlist",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 9339,
+    "timestamp": 1787436541055,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "5ghIJDpPoe3CfHMGu71E6T",
+     "uri": "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+     "name": "Smells Like Teen Spirit",
+     "duration_ms": 301920,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "6olE6TJLqED3rqDCT0FyPh",
+       "name": "Nirvana",
+       "uri": "spotify:artist:6olE6TJLqED3rqDCT0FyPh"
+      }
+     ],
+     "album": {
+      "id": "2guirTSEqLizK7j9i1MTTZ",
+      "name": "Nevermind (Remastered)",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02e175a19e530c898d167d39bf",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851e175a19e530c898d167d39bf",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-playlist",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 11178,
+    "timestamp": 1787436541055,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "5ghIJDpPoe3CfHMGu71E6T",
+     "uri": "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+     "name": "Smells Like Teen Spirit",
+     "duration_ms": 301920,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "6olE6TJLqED3rqDCT0FyPh",
+       "name": "Nirvana",
+       "uri": "spotify:artist:6olE6TJLqED3rqDCT0FyPh"
+      }
+     ],
+     "album": {
+      "id": "2guirTSEqLizK7j9i1MTTZ",
+      "name": "Nevermind (Remastered)",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02e175a19e530c898d167d39bf",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851e175a19e530c898d167d39bf",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-playlist",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 12992,
+    "timestamp": 1787436541055,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "5ghIJDpPoe3CfHMGu71E6T",
+     "uri": "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+     "name": "Smells Like Teen Spirit",
+     "duration_ms": 301920,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "6olE6TJLqED3rqDCT0FyPh",
+       "name": "Nirvana",
+       "uri": "spotify:artist:6olE6TJLqED3rqDCT0FyPh"
+      }
+     ],
+     "album": {
+      "id": "2guirTSEqLizK7j9i1MTTZ",
+      "name": "Nevermind (Remastered)",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02e175a19e530c898d167d39bf",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851e175a19e530c898d167d39bf",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-playlist",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": true,
+    "progress_ms": 14879,
+    "timestamp": 1787436541055,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "5ghIJDpPoe3CfHMGu71E6T",
+     "uri": "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+     "name": "Smells Like Teen Spirit",
+     "duration_ms": 301920,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "6olE6TJLqED3rqDCT0FyPh",
+       "name": "Nirvana",
+       "uri": "spotify:artist:6olE6TJLqED3rqDCT0FyPh"
+      }
+     ],
+     "album": {
+      "id": "2guirTSEqLizK7j9i1MTTZ",
+      "name": "Nevermind (Remastered)",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02e175a19e530c898d167d39bf",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851e175a19e530c898d167d39bf",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/playback/pause",
+   "status": 200,
+   "note": "final-pause",
+   "body": {},
+   "resp": {
+    "ok": true
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/playback",
+   "status": 200,
+   "note": "wait-final-pause",
+   "body": null,
+   "resp": {
+    "ok": true,
+    "idle": false,
+    "is_playing": false,
+    "progress_ms": 15360,
+    "timestamp": 1787436556234,
+    "shuffle_state": false,
+    "repeat_state": "off",
+    "item": {
+     "id": "5ghIJDpPoe3CfHMGu71E6T",
+     "uri": "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+     "name": "Smells Like Teen Spirit",
+     "duration_ms": 301920,
+     "explicit": false,
+     "artists": [
+      {
+       "id": "6olE6TJLqED3rqDCT0FyPh",
+       "name": "Nirvana",
+       "uri": "spotify:artist:6olE6TJLqED3rqDCT0FyPh"
+      }
+     ],
+     "album": {
+      "id": "2guirTSEqLizK7j9i1MTTZ",
+      "name": "Nevermind (Remastered)",
+      "images": [
+       {
+        "url": "https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf",
+        "width": 640,
+        "height": 640
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00001e02e175a19e530c898d167d39bf",
+        "width": 300,
+        "height": 300
+       },
+       {
+        "url": "https://i.scdn.co/image/ab67616d00004851e175a19e530c898d167d39bf",
+        "width": 64,
+        "height": 64
+       }
+      ]
+     }
+    },
+    "device": {
+     "id": "1988062662f82c365680af558b93d3c14ce43257",
+     "name": "archlinux",
+     "type": "Computer",
+     "is_active": true,
+     "is_restricted": false,
+     "volume_percent": 100,
+     "can_transfer": true,
+     "can_adjust_volume": true
+    }
+   }
+  }
+ ]
+}
