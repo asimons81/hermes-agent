@@ -65,7 +65,22 @@ function getPlayback() { return restRef ? restRef('/playback', { method: 'GET' }
 // here double-encodes and every mutation 422s (P4 F1).
 function mutateRest(path, method, body) { if (!restRef) return Promise.reject(new Error('transport unavailable')); return restRef(path, { method: method, body: body || {} }) }
 function contextUri(kind, id) { return id ? 'spotify:' + kind + ':' + id : null }
-function apiCategory(error) { return error && (error.category || (error.detail && error.detail.category) || (error.response && error.response.category)) }
+// IPC rehydrates typed fields on the new preload; for older preloads the body
+// survives only inside message text — parse both so no_active_device recovery
+// works regardless of app/plugin version skew.
+function apiCategory(error) {
+  var direct = error && (error.category || (error.detail && error.detail.category) || (error.response && error.response.category))
+  if (direct) return direct
+  var message = error && error.message
+  if (typeof message !== 'string') return undefined
+  var match = /\b\d{3}:\s*(\{.*\})\s*$/.exec(message)
+  if (!match) return undefined
+  try {
+    var body = JSON.parse(match[1])
+    var detail = body && typeof body === 'object' && body.detail && typeof body.detail === 'object' ? body.detail : null
+    return (body && body.category) || (detail && detail.category) || undefined
+  } catch (e) { return undefined }
+}
 function connectionState(status, disconnected) { if (disconnected) return 'disconnected'; var value = status && status.auth && status.auth.state; if (value === 'connected' || value === 'credentials_available') return 'connected'; if (value === 'expired' || value === 'revoked' || value === 'reauth_required') return 'expired'; if (value === 'not_authenticated') return 'login_required'; return 'error' }
 function transitionConnection(current, event) { if (event === 'disconnect') return 'disconnected'; if (event === 'connect_opened' && (current === 'login_required' || current === 'expired' || current === 'disconnected')) return 'connecting'; if (event === 'status_connected' && current === 'connecting') return 'connected'; if (event === 'status_expired' && current === 'connecting') return 'expired'; if (event === 'status_not_authenticated' && current === 'connecting') return 'login_required'; return current }
 function clearPluginData(storage) { if (storage && typeof storage.remove === 'function') STORAGE_KEYS.forEach(function (key) { storage.remove(key) }) }
@@ -84,9 +99,14 @@ function normalizeSearchResults(value) { var raw = value || {}; function items(k
 function isOwnedPlaylist(playlist, userId) { return !!(playlist && playlist.owner && userId && playlist.owner.id === userId) }
 function shouldLoadMore(page, backoff) { return !!(page && page.next) && !(Number(backoff) > 0) }
 function contentError(error) { return apiCategory(error) || 'unavailable' }
-function deviceUiState(error) { var category = apiCategory(error); return category === 'premium_required' ? 'free_read_only' : category === 'no_active_device' ? 'no_device' : category === 'restricted_device' ? 'restricted' : category === 'rate_limited' || category === 'quota_exceeded' ? 'rate_limited' : category ? 'offline' : 'ready' }
-function canTransferDevice(device, error) { return deviceUiState(error) === 'ready' && !!(device && device.can_transfer) }
-function canAdjustDeviceVolume(device, error) { return deviceUiState(error) === 'ready' && !!(device && device.can_adjust_volume) }
+// No error object at all is NOT 'ready' — treating undefined as ready rendered
+// transport failures as silent no-ops (QA F2 secondary defect). Only a real,
+// category-less error that came from a *successful* read can be ready; the
+// callers pass mutationError || devices.error, so null/undefined means "no
+// failure signal yet," which for a mutation-gated control means do not enable.
+function deviceUiState(error) { if (!error) return 'unknown'; var category = apiCategory(error); return category === 'premium_required' ? 'free_read_only' : category === 'no_active_device' ? 'no_device' : category === 'restricted_device' ? 'restricted' : category === 'rate_limited' || category === 'quota_exceeded' ? 'rate_limited' : category ? 'offline' : 'ready' }
+function canTransferDevice(device, error) { return (deviceUiState(error) === 'ready' || deviceUiState(error) === 'unknown') && !!(device && device.can_transfer) }
+function canAdjustDeviceVolume(device, error) { return (deviceUiState(error) === 'ready' || deviceUiState(error) === 'unknown') && !!(device && device.can_adjust_volume) }
 function retryAfterDelay(error) { var seconds = Number(error && (error.retry_after_seconds || error.detail && error.detail.retry_after_seconds)); return Math.max(0, Math.min(60000, Number.isFinite(seconds) ? seconds * 1000 : 0)) }
 // F2: no_active_device recovery — open the Spotify desktop app via the
 // curated spotify: scheme (allowed by PluginOs.openExternal), poll /devices
@@ -259,4 +279,4 @@ function MusicPage() { var i18n = useI18n(); var t = i18n.t; useEffect(ensureInp
 
 var plugin = { id: ID, name: COMPLIANCE.productName, description: 'Personal Spotify companion route backed by the Hermes plugin API.', defaultEnabled: false, register: function (ctx) { restRef = ctx.rest; osRef = ctx.os; storageRef = ctx.storage; if (ctx.i18n && ctx.i18n.register) ctx.i18n.register(translations); ctx.registerMany([{ id: 'page', area: ROUTES_AREA, data: { path: '/spotify' }, render: function () { return jsx(MusicPage, {}) } }, { id: 'nav', area: SIDEBAR_NAV_AREA, order: 60, data: { codicon: 'music', label: 'Music', path: '/spotify' } }, { id: 'open', area: PALETTE_AREA, data: { id: 'spotify-desktop.open', label: 'Music: Open Spotify companion', keywords: ['music', 'spotify', 'playback'], run: function () { host.navigate('/spotify') } } }]); ctx.onDispose(function () { restRef = null; osRef = null; storageRef = null }) } }
 
-export { AUTH_SETTINGS_DEEP_LINK, COMPLIANCE, actionAllowed, boundedOffset, canAdjustDeviceVolume, canTransferDevice, clampSeek, clearPluginData, connectionState, containsSaved, contentState, contextUri, deviceUiState, ensureInputStyles, interpolateProgress, isOwnedPlaylist, libraryContainsPath, mutateRest, nestMessages, nextPollDelay, normalizeSearchResults, pageLimit, playWithDeviceRecovery, playbackUiState, plugin as default, recoverNoDevice, retryAfterDelay, shouldLoadMore, snapshotAfter, transitionConnection, translations }
+export { AUTH_SETTINGS_DEEP_LINK, COMPLIANCE, actionAllowed, apiCategory, boundedOffset, canAdjustDeviceVolume, canTransferDevice, clampSeek, clearPluginData, connectionState, containsSaved, contentState, contextUri, deviceUiState, ensureInputStyles, interpolateProgress, isOwnedPlaylist, libraryContainsPath, mutateRest, nestMessages, nextPollDelay, normalizeSearchResults, pageLimit, playWithDeviceRecovery, playbackUiState, plugin as default, recoverNoDevice, retryAfterDelay, shouldLoadMore, snapshotAfter, transitionConnection, translations }
