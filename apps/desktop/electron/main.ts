@@ -31,6 +31,7 @@ import {
 } from 'electron'
 
 import { classifyActiveRuntime } from './active-runtime-state'
+import { makeApiError } from './api-error-restore'
 import { stopBackendChild as stopBackendChildImpl, stopBackendTreesForUpdate } from './backend-child'
 import { dashboardFallbackArgs, sourceDeclaresServe } from './backend-command'
 import { createBackendConnectionState } from './backend-connection-state'
@@ -45,7 +46,6 @@ import {
   verifyHermesCli
 } from './backend-probes'
 import { waitForDashboardPortAnnouncement } from './backend-ready'
-import { isExternallyOpenableScheme } from './open-external-schemes'
 import {
   isHostKeyChangedBootFailure,
   isRetryableRemoteBootFailure,
@@ -207,6 +207,7 @@ import {
 import { runNativeLogin } from './native-oauth-login'
 import { loadNativeTokenSet, type NativeTokenStoreIo, persistNativeTokenSet } from './native-token-store'
 import { serializeJsonBody, setJsonRequestHeaders } from './oauth-net-request'
+import { isExternallyOpenableScheme } from './open-external-schemes'
 import {
   createParentStartMarkerResolver,
   electronProcessStartMarker,
@@ -4864,7 +4865,7 @@ function fetchJson(url, token, options: any = {}) {
           const text = Buffer.concat(chunks).toString('utf8')
 
           if ((res.statusCode || 500) >= 400) {
-            reject(new Error(`${res.statusCode}: ${text || res.statusMessage}`))
+            reject(makeApiError(res.statusCode || 500, text, res.statusMessage))
 
             return
           }
@@ -5017,7 +5018,7 @@ function fetchPublicJson(url, options: any = {}) {
           const text = Buffer.concat(chunks).toString('utf8')
 
           if ((res.statusCode || 500) >= 400) {
-            reject(new Error(`${res.statusCode}: ${text || res.statusMessage}`))
+            reject(makeApiError(res.statusCode || 500, text, res.statusMessage))
 
             return
           }
@@ -7134,9 +7135,7 @@ function fetchJsonViaOauthSession(url, options: any = {}) {
         const statusCode = res.statusCode || 500
 
         if (statusCode >= 400) {
-          const err = new Error(`${statusCode}: ${text || ''}`) as any
-          err.statusCode = statusCode
-          reject(err)
+          reject(makeApiError(statusCode, text))
 
           return
         }

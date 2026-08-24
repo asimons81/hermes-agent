@@ -1,5 +1,7 @@
 import { contextBridge, ipcRenderer, webFrame, webUtils } from 'electron'
 
+import { restoreApiError } from './api-error-restore'
+
 // Which translucency the OS can back. Asked synchronously because the renderer
 // needs it before its first paint, and answered by main because deciding it
 // needs `os.release()` — a sandboxed preload may only require electron, events,
@@ -188,37 +190,15 @@ contextBridge.exposeInMainWorld('hermesDesktop', {
   // The single REST door. A rejected invoke crosses Electron's structured-
   // clone with ONLY .message intact — main's typed JSON error body (category,
   // retry_after_seconds…) survives solely as text inside that string. Rehydrate
-  // it here so EVERY renderer caller (app api/ helpers and plugin ctx.rest)
-  // reads typed fields again instead of parsing strings per-call-site. The
-  // original message is preserved on .message; transport errors that don't
-  // match the flattened shape pass through untouched.
+  // it here so EVERY renderer caller (app api/ helpers and plugin ctx.rest,
+  // both of which go through this one invoke) reads typed fields again instead
+  // of parsing strings per-call-site. Transport errors that don't match the
+  // flattened shape pass through untouched.
   api: async request => {
     try {
       return await ipcRenderer.invoke('hermes:api', request)
     } catch (error) {
-      const message = error instanceof Error ? error.message : String(error)
-      // Electron prefixes rejections with "Error invoking remote method 'x':".
-      const flatMatch = /\b(\d{3}):\s*(\{.*\})\s*$/.exec(message)
-      if (flatMatch) {
-        let body: unknown
-        try {
-          body = JSON.parse(flatMatch[2])
-        } catch {
-          body = null
-        }
-        if (body && typeof body === 'object' && !Array.isArray(body)) {
-          const obj = body as Record<string, any>
-          const detail = (obj.detail && typeof obj.detail === 'object' ? obj.detail : undefined) as any
-          const restored = error instanceof Error ? error : new Error(message)
-          const typed = restored as Error & { detail?: unknown; category?: unknown; status?: number; body?: unknown }
-          typed.detail = detail
-          typed.category = obj.category ?? detail?.category
-          typed.status = Number(flatMatch[1])
-          typed.body = body
-          throw typed
-        }
-      }
-      throw error
+      throw restoreApiError(error)
     }
   },
   notify: payload => ipcRenderer.invoke('hermes:notify', payload),
